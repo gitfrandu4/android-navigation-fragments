@@ -2,8 +2,8 @@
 
 ## Fragments
 
-Los fragment forman parte del activity. Se complementan. El Activity es como el canal para mostrar
-cosas y los Fragment ... Lo normal es tener un Activity que va a tener muchos Fragments
+Los fragment forman parte del activity, se complementan. Lo normal es tener un Activity que va a 
+contener muchos Fragments
 
 ### Qué son y sus ciclos de vida
 
