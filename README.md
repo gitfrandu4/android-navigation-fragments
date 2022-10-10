@@ -176,16 +176,44 @@ class BlueFragment : Fragment() {
 }
 ```
 
+Bundle es com un conjunto de elementos donde podemos meter atributos en el Fragment
+
 #### Leer parámetros entre fragments
 
-Desde el fragment “RedFragment” leeremos nuestro parametro usando el atributo arguments  y gestString 
+Desde el fragment “RedFragment” leeremos nuestro parametro usando el atributo arguments y gestString
 con el nombre que le dimos a nuestro argumento.
 
 ```kotlin
 override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    
+
     val nombre = arguments?.getString("nombre")
     Log.i("RedFragment", nombre)
 }
 ```
+
+### Volver atrás por código
+
+3. Y ahora, volveremos atrás desde el "RedFragment" al "BlueFragment"
+
+```kotlin
+class RedFragment : Fragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_red, container, false)
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btnBack.setOnClickListener {
+            activity?.supportFragmentManager?.popBackStack()
+        }
+    }
+}
+```
+
+Para más información ver:
+https://developer.android.com/guide/components/fragments?hl=es_419

@@ -29,9 +29,23 @@ class BlueFragment : Fragment() {
 
         binding.btGoRed.setOnClickListener {
             activity?.let {
+//                it.supportFragmentManager
+//                    .beginTransaction()
+//                    .replace(R.id.mainContainer, RedFragment())
+//                    .addToBackStack("RedFragment")
+//                    .commit()
+
+                // Pasado argumentos al RedFragment
+                val fragment = RedFragment()
+
+                fragment.arguments = Bundle().apply {
+                    putString("name", "Froilán de todos los santos")
+                }
+
                 it.supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.mainContainer, RedFragment())
+                    .replace(R.id.mainContainer, fragment)
+                    .addToBackStack("RedFragment")
                     .commit()
             }
         }
